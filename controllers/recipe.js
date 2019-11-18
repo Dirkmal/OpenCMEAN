@@ -17,7 +17,7 @@ exports.createRecipe = (req, res, next) => {
 
 exports.getRecipeById = (req, res, next) => {
     Recipe.findOne({_id: req.body.id}).then(recipe => {
-        res.status(200).json({recipe});
+        res.status(200).json(recipe);
     }).catch(error => {
         res.status(404).json({message: 'Recipe not found', error: error});
     });
@@ -25,7 +25,7 @@ exports.getRecipeById = (req, res, next) => {
 
 exports.getRecipes = (req, res, next) => {
     Recipe.find().then(recipes => {
-        res.status(200).json({recipes});
+        res.status(200).json(recipes);
     }).catch(error => {
         res.status(404).json({message: 'No recipes found', error: error});
     });
